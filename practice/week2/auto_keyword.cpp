@@ -10,6 +10,6 @@ auto add(int x, int y)
 int main()
 {
     auto sum = add(5, 6);
-    cout << sum;
+    cout << sum;  
     return 0;
 }
