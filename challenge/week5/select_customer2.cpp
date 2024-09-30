@@ -47,4 +47,5 @@ int main() {
         default: 
             cout << "잘못된 입력을 감지했습니다. 종료합니다." << endl;    
         }
+    return 0;
 }
