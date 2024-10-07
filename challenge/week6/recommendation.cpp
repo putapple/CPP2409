@@ -33,9 +33,9 @@ void findRecommendedItems(const int Preferences[NUM_USERS][NUM_ITEMS]){
                 maxPreferences = j;
             }
             else if (userPreferences[i][j] == userPreferences[i][maxPreferences]) {
-                int randNUM = rand() % 2;
+                int randNUM = rand() % 2; //숫자가 같을 경우 2개 중 랜덤한 한개를 출력하기 위한 변수
                 if(randNUM == 0) {
-                    maxPreferences = j;   
+                    maxPreferences = j; //randNUM이 0이면 바뀌고, 1이면 유지되는 형식   
                 }
             }
         }
