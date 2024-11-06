@@ -27,7 +27,7 @@ int main() {
 
     //평균 계산후 출력
     if (count > 0) {
-        double average = sum / count;
+        double average = static_cast<double>(sum) / count; // 소수점 계산을 위해 double로 변환 
         cout << "평균 성적 : " << average << endl;
     }
     else { //점수를 입력하지 않았을 경우
