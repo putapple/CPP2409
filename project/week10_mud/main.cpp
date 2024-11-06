@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include "user.h"
 
 using namespace std;
@@ -9,12 +10,12 @@ const int mapY = 5;
 const int initialHealth = 20;
 
 bool checkXY(int user_x, int user_y);
-void displayMap(int map[][mapX], const User& user);
-bool checkGoal(int map[][mapX], const User& user);
-void checkEncounter(int map[][mapX], User& user);
+void displayMap(vector<vector<int>>& map, const User& user);
+bool checkGoal(vector<vector<int>>& map, const User& user);
+void checkEncounter(vector<vector<int>>& map, User& user);
 
 int main() {
-    int map[mapY][mapX] = { {0, 1, 2, 0, 4},
+    vector<vector<int>> map = { {0, 1, 2, 0, 4},
                             {1, 0, 0, 2, 0},
                             {0, 0, 0, 0, 0},
                             {0, 2, 3, 0, 0},
@@ -80,7 +81,7 @@ bool checkXY(int user_x, int user_y) {
 }
 
 // 지도와 사용자 위치 출력
-void displayMap(int map[][mapX], const User& user) {
+void displayMap(vector<vector<int>>& map, const User& user) {
     for (int i = 0; i < mapY; i++) {
         for (int j = 0; j < mapX; j++) {
             if (i == user.getY() && j == user.getX()) {
@@ -111,12 +112,12 @@ void displayMap(int map[][mapX], const User& user) {
 }
 
 // 유저의 위치가 목적지인지 확인
-bool checkGoal(int map[][mapX], const User& user) {
+bool checkGoal(vector<vector<int>>& map, const User& user) {
     return map[user.getY()][user.getX()] == 4;
 }
 
 // 아이템, 포션, 적을 만났을 때의 처리
-void checkEncounter(int map[][mapX], User& user) {
+void checkEncounter(vector<vector<int>>& map, User& user) {
     int posState = map[user.getY()][user.getX()];
     switch (posState) {
         case 1:
